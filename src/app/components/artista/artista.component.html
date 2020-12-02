@@ -1,0 +1,49 @@
+<div class="row">
+
+    <div class="col-2">
+        <img [src]="artista.images | noimage" class="img-thumbnail img-circle">
+    </div>
+
+    <div class="col">
+        <h3>{{artista.name}}</h3>
+        <p>
+            <a [href]="artista.external_urls.spotify" target="_blank">
+                Go to artist's page
+            </a>
+        </p>
+    </div>
+
+    <div class="col-4 text-right">
+        <button routerLink="/search" class=" btn btn-outline-danger ">
+            Go back
+        </button>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col">
+        <table class="table white m-4" style="color: white;">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Cancion</th>
+                    <th>Album</th>
+                    <th>Vista previa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let track of top">
+                    <td>
+                        <img [src]="track.album.images | noimage" class="img-thumb">
+                    </td>
+                    <td>{{track.name}}</td>
+                    <td>{{track.album.name}}</td>
+                    <td>
+                        <iframe src="https://open.spotify.com/follow/1/?uri=spotify:artist:6sFIWsNpZYqfjUpaCgueju&size=basic&theme=dark" width="200" height="25" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
